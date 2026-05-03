@@ -17,12 +17,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #1e2a3e;
             line-height: 1.5;
-            transition: all 0.3s ease;
-        }
-
-        /* MODE GIRLY - BEDDEL L'BACKGROUND */
-        body.girly {
-            background: linear-gradient(135deg, #ffe9f4 0%, #ffe0ea 100%);
         }
 
         .container {
@@ -34,91 +28,15 @@
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
-            transition: all 0.3s ease;
         }
 
-        body.girly .container {
-            background: #fffafc;
-            border: 1px solid #ffd9e8;
-            box-shadow: 0 25px 45px rgba(255, 105, 180, 0.15);
-        }
-
-        body.girly .sidebar {
-            background: linear-gradient(145deg, #2d1f2c, #3a2a38);
-        }
-
-        body.girly .sidebar h2 {
-            color: #ffdfe8;
-        }
-
-        body.girly .sidebar .tagline {
-            color: #ffbcd0;
-        }
-
-        body.girly .contact-info p {
-            color: #ffdee8;
-        }
-
-        body.girly .download-btn {
-            background: #ff9eb5;
-            color: #3a2a38;
-        }
-
-        body.girly .download-btn:hover {
-            background: #ff7f9f;
-            color: white;
-        }
-
-        body.girly nav ul {
-            border-bottom-color: #ffe0ea;
-        }
-
-        body.girly nav ul li {
-            color: #7a4b5e;
-        }
-
-        body.girly nav ul li:hover {
-            color: #ff7f9f;
-        }
-
-        body.girly .about-grid {
-            background: #fff5f8;
-            border: 1px solid #ffd9e8;
-        }
-
-        body.girly .progress {
-            background: #ff9eb5;
-        }
-
-        body.girly .project-card {
-            background: #fff5f8;
-            border: 1px solid #ffd9e8;
-        }
-
-        body.girly .project-card h3 {
-            color: #c95a7a;
-        }
-
-        body.girly .contact-form button {
-            background: #ff9eb5;
-        }
-
-        body.girly .contact-form button:hover {
-            background: #ff7f9f;
-        }
-
-        body.girly footer {
-            color: #b2899b;
-        }
-
-        /* SIDEBAR LEFT NORMAL */
+        /* SIDEBAR LEFT */
         .sidebar {
             background: #1f2b3c;
             color: #ecf0f1;
             width: 30%;
             padding: 40px 25px;
             text-align: center;
-            transition: all 0.3s ease;
         }
 
         .avatar {
@@ -172,7 +90,6 @@
         .sidebar h2 {
             font-size: 28px;
             margin-bottom: 5px;
-            transition: all 0.3s ease;
         }
 
         .sidebar .tagline {
@@ -180,7 +97,6 @@
             color: #f1c40f;
             margin-bottom: 25px;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
         }
 
         .contact-info p {
@@ -190,7 +106,6 @@
             align-items: center;
             gap: 12px;
             justify-content: center;
-            transition: all 0.3s ease;
         }
 
         .contact-info i {
@@ -235,7 +150,6 @@
             border-bottom: 2px solid #e9ecef;
             padding-bottom: 18px;
             margin-bottom: 30px;
-            transition: all 0.3s ease;
         }
 
         nav ul li {
@@ -247,34 +161,6 @@
 
         nav ul li:hover {
             color: #f1c40f;
-        }
-
-        /* Girly Mode Button */
-        .girly-toggle {
-            background: #f1c40f20;
-            border: 1px solid #f1c40f;
-            border-radius: 40px;
-            padding: 6px 16px;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-left: auto;
-        }
-
-        .girly-toggle:hover {
-            background: #f1c40f;
-            color: #1f2b3c;
-        }
-
-        body.girly .girly-toggle {
-            background: #ff9eb5;
-            border-color: #ff9eb5;
-            color: white;
-        }
-
-        body.girly .girly-toggle:hover {
-            background: #ff7f9f;
         }
 
         .section {
@@ -299,7 +185,6 @@
             padding: 20px;
             border-radius: 20px;
             margin: 20px 0;
-            transition: all 0.3s ease;
         }
 
         .skill-item {
@@ -322,7 +207,6 @@
             height: 10px;
             border-radius: 12px;
             width: 0%;
-            transition: all 0.3s ease;
         }
 
         .project-card {
@@ -351,7 +235,6 @@
             padding: 12px 24px;
             border-radius: 40px;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         .stats {
@@ -372,7 +255,6 @@
             margin-top: 30px;
             font-size: 13px;
             color: #7f8c8d;
-            transition: all 0.3s ease;
         }
 
         @media (max-width: 800px) {
@@ -425,7 +307,6 @@
                 <li data-section="skills" class="nav-link">Skills</li>
                 <li data-section="projects" class="nav-link">Projects</li>
                 <li data-section="contact" class="nav-link">Contact</li>
-                <li class="girly-toggle" id="girlyToggle">✨ Girly Mode</li>
             </ul>
         </nav>
 
@@ -497,7 +378,11 @@
         <!-- CONTACT SECTION avec NETLIFY FORMS -->
         <div id="contact" class="section">
             <h2><i class="fas fa-paper-plane"></i> Contact Me</h2>
-            <form class="contact-form" data-netlify="true" name="contact" method="POST">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/">
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="hidden" style="display:none;">
+                    <input type="text" name="bot-field" />
+                </p>
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <textarea name="message" rows="3" placeholder="Message..."></textarea>
@@ -526,39 +411,14 @@
     }
 
     navLinks.forEach(link => {
-        if(link.classList && !link.classList.contains('girly-toggle')) {
-            link.addEventListener('click', function(e) {
-                const sectionId = this.getAttribute('data-section');
-                if(sectionId) {
-                    showSection(sectionId);
-                }
-                navLinks.forEach(l => {
-                    if(l.style) l.style.color = "#2c3e50";
-                });
-                this.style.color = "#f1c40f";
-                
-                // Remove active-nav class from all
-                navLinks.forEach(l => l.classList.remove('active-nav'));
-                this.classList.add('active-nav');
-            });
-        }
-    });
-
-    // GIRLY MODE TOGGLE
-    const girlyToggle = document.getElementById('girlyToggle');
-    const body = document.body;
-    
-    // Check localStorage
-    if(localStorage.getItem('girlyMode') === 'true') {
-        body.classList.add('girly');
-        girlyToggle.textContent = '💙 Normal Mode';
-    }
-    
-    girlyToggle.addEventListener('click', function() {
-        body.classList.toggle('girly');
-        const isGirly = body.classList.contains('girly');
-        localStorage.setItem('girlyMode', isGirly);
-        this.textContent = isGirly ? '💙 Normal Mode' : '✨ Girly Mode';
+        link.addEventListener('click', function(e) {
+            const sectionId = this.getAttribute('data-section');
+            if(sectionId) {
+                showSection(sectionId);
+            }
+            navLinks.forEach(l => l.style.color = "#2c3e50");
+            this.style.color = "#f1c40f";
+        });
     });
 
     // PHOTO UPLOAD FUNCTIONALITY
