@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achouak - Web Developer</title>
+    <title>Achouak - Web Developer ✨</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -13,27 +13,28 @@
         }
 
         body {
-            background: #f4f6f9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #1e2a3e;
+            background: linear-gradient(135deg, #ffe9f4 0%, #ffe0ea 100%);
+            font-family: 'Segoe UI', 'Quicksand', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4a2b3a;
             line-height: 1.5;
         }
 
         .container {
             max-width: 1200px;
             margin: 30px auto;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            background: #fffafc;
+            border-radius: 40px;
+            box-shadow: 0 25px 45px rgba(255, 105, 180, 0.15);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
+            border: 1px solid #ffd9e8;
         }
 
-        /* SIDEBAR LEFT */
+        /* SIDEBAR LEFT - GIRLY */
         .sidebar {
-            background: #1f2b3c;
-            color: #ecf0f1;
+            background: linear-gradient(145deg, #2d1f2c, #3a2a38);
+            color: #fce4ec;
             width: 30%;
             padding: 40px 25px;
             text-align: center;
@@ -42,18 +43,19 @@
         .avatar {
             width: 150px;
             height: 150px;
-            background: #2c3e50;
+            background: #ffb7c5;
             border-radius: 50%;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 64px;
-            color: white;
-            border: 4px solid #f1c40f;
+            color: #fff0f3;
+            border: 4px solid #ff9eb5;
             overflow: hidden;
             position: relative;
             cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
         }
 
         .avatar img {
@@ -70,13 +72,15 @@
         .avatar .upload-overlay {
             position: absolute;
             bottom: 0;
-            background: rgba(0,0,0,0.7);
+            background: #ff85a1cc;
             width: 100%;
-            font-size: 12px;
+            font-size: 11px;
             padding: 5px;
             text-align: center;
             opacity: 0;
             transition: 0.2s;
+            font-weight: bold;
+            color: white;
         }
 
         .avatar:hover .upload-overlay {
@@ -90,56 +94,61 @@
         .sidebar h2 {
             font-size: 28px;
             margin-bottom: 5px;
+            color: #ffdfe8;
         }
 
         .sidebar .tagline {
-            font-size: 16px;
-            color: #f1c40f;
+            font-size: 15px;
+            color: #ffbcd0;
             margin-bottom: 25px;
             letter-spacing: 1px;
+            font-weight: 500;
         }
 
         .contact-info p {
             margin: 12px 0;
-            font-size: 14px;
+            font-size: 13px;
             display: flex;
             align-items: center;
             gap: 12px;
             justify-content: center;
+            color: #ffdee8;
         }
 
         .contact-info i {
             width: 24px;
-            color: #f1c40f;
+            color: #ff9eb5;
         }
 
         hr {
             margin: 25px 0;
-            border-color: #2c3e50;
+            border-color: #ffb7c5;
         }
 
         .download-btn {
             display: inline-block;
-            background: #f1c40f;
-            color: #1f2b3c;
+            background: #ff9eb5;
+            color: #3a2a38;
             padding: 12px 24px;
-            border-radius: 40px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 15px;
             transition: 0.2s;
+            box-shadow: 0 4px 10px #ffb7c580;
         }
 
         .download-btn:hover {
-            background: #e67e22;
+            background: #ff7f9f;
             color: white;
+            transform: scale(1.02);
         }
 
         /* MAIN CONTENT (RIGHT) */
         .main-content {
             width: 70%;
             padding: 40px 35px;
-            background: white;
+            background: #ffffff;
         }
 
         nav ul {
@@ -147,7 +156,7 @@
             flex-wrap: wrap;
             gap: 28px;
             list-style: none;
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 2px solid #ffe0ea;
             padding-bottom: 18px;
             margin-bottom: 30px;
         }
@@ -155,12 +164,13 @@
         nav ul li {
             font-weight: 600;
             cursor: pointer;
-            color: #2c3e50;
+            color: #7a4b5e;
             transition: 0.2s;
+            font-size: 16px;
         }
 
         nav ul li:hover {
-            color: #f1c40f;
+            color: #ff7f9f;
         }
 
         .section {
@@ -181,10 +191,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px 25px;
-            background: #f8f9fa;
+            background: #fff5f8;
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 28px;
             margin: 20px 0;
+            border: 1px solid #ffd9e8;
         }
 
         .skill-item {
@@ -194,47 +205,57 @@
             font-weight: bold;
             display: flex;
             justify-content: space-between;
+            color: #4a2b3a;
         }
         .progress-bar {
-            background: #e2e8f0;
-            border-radius: 12px;
+            background: #ffe0ea;
+            border-radius: 20px;
             height: 10px;
             margin-top: 5px;
             overflow: hidden;
         }
         .progress {
-            background: #f1c40f;
+            background: #ff9eb5;
             height: 10px;
-            border-radius: 12px;
+            border-radius: 20px;
             width: 0%;
         }
 
         .project-card {
-            background: #f8f9fa;
+            background: #fff5f8;
             padding: 15px 20px;
-            border-radius: 18px;
+            border-radius: 24px;
             margin-bottom: 20px;
             transition: 0.2s;
+            border: 1px solid #ffd9e8;
         }
         .project-card h3 {
             margin-bottom: 8px;
+            color: #c95a7a;
         }
 
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 12px;
             margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 28px;
+            border: 1px solid #ffc0d0;
+            border-radius: 40px;
             font-family: inherit;
+            background: #fffafc;
         }
         .contact-form button {
-            background: #1f2b3c;
+            background: #ff9eb5;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 12px 28px;
             border-radius: 40px;
             cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .contact-form button:hover {
+            background: #ff7f9f;
+            transform: scale(1.02);
         }
 
         .stats {
@@ -243,18 +264,23 @@
             margin: 25px 0;
         }
         .stat-box {
-            background: #f1c40f20;
+            background: #ffeff3;
             padding: 15px;
             text-align: center;
-            border-radius: 24px;
+            border-radius: 28px;
             flex: 1;
         }
 
         footer {
             text-align: center;
             margin-top: 30px;
-            font-size: 13px;
-            color: #7f8c8d;
+            font-size: 12px;
+            color: #b2899b;
+        }
+        
+        h2 i, h3 i {
+            color: #ff7f9f;
+            margin-right: 8px;
         }
 
         @media (max-width: 800px) {
@@ -270,10 +296,10 @@
 <body>
 
 <div class="container">
-    <!-- LEFT SIDEBAR -->
+    <!-- LEFT SIDEBAR - GIRLY -->
     <div class="sidebar">
         <div class="avatar" id="avatarContainer" onclick="document.getElementById('photoUpload').click()">
-            <i class="fas fa-code" id="avatarIcon"></i>
+            <i class="fas fa-heart" id="avatarIcon"></i>
             <img id="avatarImg" style="display:none; width:100%; height:100%; object-fit:cover;" alt="Achouak">
             <div class="upload-overlay">
                 <i class="fas fa-camera"></i> Changer photo
@@ -282,13 +308,13 @@
         <input type="file" id="photoUpload" accept="image/*" style="display:none">
         
         <h2>Achouak</h2>
-        <div class="tagline">Web Developer</div>
+        <div class="tagline">✨ Web Developer ✨</div>
         <div class="contact-info">
-            <p><i class="fas fa-calendar-alt"></i> Birth: 24 janvier</p>
+            <p><i class="fas fa-cake-candles"></i> Birth: 24 janvier</p>
             <p><i class="fas fa-map-marker-alt"></i> Jijel, Algérie</p>
             <p><i class="fas fa-envelope"></i> amimourachouak@gmail.com</p>
             <p><i class="fas fa-phone-alt"></i> +213 xx xx xx xx</p>
-            <p><i class="fas fa-code-branch"></i> Zip Code: 20000</p>
+            <p><i class="fas fa-heart"></i> Zip Code: 20000</p>
         </div>
         <hr>
         <div class="stats">
@@ -302,11 +328,11 @@
     <div class="main-content">
         <nav>
             <ul>
-                <li data-section="about" class="nav-link active-nav">About</li>
-                <li data-section="resume" class="nav-link">Resume</li>
-                <li data-section="skills" class="nav-link">Skills</li>
-                <li data-section="projects" class="nav-link">Projects</li>
-                <li data-section="contact" class="nav-link">Contact</li>
+                <li data-section="about" class="nav-link active-nav">🌸 About</li>
+                <li data-section="resume" class="nav-link">📖 Resume</li>
+                <li data-section="skills" class="nav-link">💎 Skills</li>
+                <li data-section="projects" class="nav-link">🎀 Projects</li>
+                <li data-section="contact" class="nav-link">💌 Contact</li>
             </ul>
         </nav>
 
@@ -349,11 +375,11 @@
                 <div class="progress-bar"><div class="progress" style="width:80%"></div></div>
             </div>
             <div class="skill-item">
-                <div class="skill-name">Python / Django <span>75%</span></div>
+                <div class="skill-name">Python <span>75%</span></div>
                 <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
             </div>
             <div class="skill-item">
-                <div class="skill-name">HTML5 / CSS3 / Tailwind <span>92%</span></div>
+                <div class="skill-name">HTML5 / CSS3 / PHP <span>92%</span></div>
                 <div class="progress-bar"><div class="progress" style="width:92%"></div></div>
             </div>
         </div>
@@ -362,7 +388,7 @@
         <div id="projects" class="section">
             <h2><i class="fas fa-laptop-code"></i> Recent Projects</h2>
             <div class="project-card">
-                <h3>📱 E-commerce Platform "ShopAlgeria"</h3>
+                <h3>📱 E-commerce Platform</h3>
                 <p>Fullstack MERN app with payment & admin dashboard.</p>
             </div>
             <div class="project-card">
@@ -375,23 +401,13 @@
             </div>
         </div>
 
-        <!-- CONTACT SECTION avec NETLIFY FORMS -->
+        <!-- CONTACT SECTION -->
         <div id="contact" class="section">
-            <h2><i class="fas fa-paper-plane"></i> Contact Me</h2>
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/">
-                <input type="hidden" name="form-name" value="contact" />
-                <p class="hidden" style="display:none;">
-                    <input type="text" name="bot-field" />
-                </p>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" rows="3" placeholder="Message..."></textarea>
-                <button type="submit"><i class="fas fa-envelope"></i> Send Message</button>
-            </form>
+           
             <p style="margin-top: 20px;">📞 Direct: +213 xx xx xx xx</p>
         </div>
         <footer>
-            <hr> © 2026 Achouak – Web Developer. All rights reserved.
+            <hr> 💖 © 2026 Achouak – Web Developer. Made with love 💖
         </footer>
     </div>
 </div>
@@ -416,8 +432,8 @@
             if(sectionId) {
                 showSection(sectionId);
             }
-            navLinks.forEach(l => l.style.color = "#2c3e50");
-            this.style.color = "#f1c40f";
+            navLinks.forEach(l => l.style.color = "#7a4b5e");
+            this.style.color = "#ff7f9f";
         });
     });
 
