@@ -326,16 +326,12 @@
     </div>
 
     <!-- RIGHT MAIN -->
-    <div class="main-content">
-        <nav>
-            <ul>
-                <li data-section="about" class="nav-link active-nav">🌸 About</li>
-                <li data-section="resume" class="nav-link">📖 Resume</li>
-                <li data-section="skills" class="nav-link">💎 Skills</li>
-                <li data-section="projects" class="nav-link">🎀 Projects</li>
-                <li data-section="contact" class="nav-link">💌 Contact</li>
-            </ul>
-        </nav>
+    <form class="contact-form" data-netlify="true" name="contact" method="POST">
+    <input type="text" name="name" placeholder="✨ Your Name" required>
+    <input type="email" name="email" placeholder="🌸 Email Address" required>
+    <textarea name="message" rows="3" placeholder="💬 Message..."></textarea>
+    <button type="submit"><i class="fas fa-heart"></i> Send Message</button>
+</form>
 
         <!-- ABOUT SECTION -->
         <div id="about" class="section active-section">
