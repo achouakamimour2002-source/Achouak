@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achouak - Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* SIDEBAR LEFT */
+        .sidebar {
+            background: #1f2b3c;
+            color: #ecf0f1;
+            width: 30%;
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background: #2c3e50;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: white;
+            border: 4px solid #f1c40f;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar i {
+            font-size: 64px;
+        }
+
+        .avatar .upload-overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            width: 100%;
+            font-size: 12px;
+            padding: 5px;
+            text-align: center;
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        .avatar:hover .upload-overlay {
+            opacity: 1;
+        }
+
+        #photoUpload {
+            display: none;
+        }
+
+        .sidebar h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar .tagline {
+            font-size: 16px;
+            color: #f1c40f;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            margin: 12px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .contact-info i {
+            width: 24px;
+            color: #f1c40f;
+        }
+
+        hr {
+            margin: 25px 0;
+            border-color: #2c3e50;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #f1c40f;
+            color: #1f2b3c;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* MAIN CONTENT (RIGHT) */
+        .main-content {
+            width: 70%;
+            padding: 40px 35px;
+            background: white;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 18px;
+            margin-bottom: 30px;
+        }
+
+        nav ul li {
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c3e50;
+            transition: 0.2s;
+        }
+
+        nav ul li:hover {
+            color: #f1c40f;
+        }
+
+        .section {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 25px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            margin: 15px 0;
+        }
+        .skill-name {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 12px;
+            height: 10px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .progress {
+            background: #f1c40f;
+            height: 10px;
+            border-radius: 12px;
+            width: 0%;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            transition: 0.2s;
+        }
+        .project-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 28px;
+            font-family: inherit;
+        }
+        .contact-form button {
+            background: #1f2b3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .stat-box {
+            background: #f1c40f20;
+            padding: 15px;
+            text-align: center;
+            border-radius: 24px;
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 800px) {
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="avatar" id="avatarContainer" onclick="document.getElementById('photoUpload').click()">
+            <i class="fas fa-code" id="avatarIcon"></i>
+            <img id="avatarImg" style="display:none; width:100%; height:100%; object-fit:cover;" alt="Achouak">
+            <div class="upload-overlay">
+                <i class="fas fa-camera"></i> Changer photo
+            </div>
+        </div>
+        <input type="file" id="photoUpload" accept="image/*" style="display:none">
+        
+        <h2>Achouak</h2>
+        <div class="tagline">Web Developer</div>
+        <div class="contact-info">
+            <p><i class="fas fa-calendar-alt"></i> Birth: 24 janvier</p>
+            <p><i class="fas fa-map-marker-alt"></i> Jijel, Algérie</p>
+            <p><i class="fas fa-envelope"></i> amimourachouak@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +213 xx xx xx xx</p>
+            <p><i class="fas fa-code-branch"></i> Zip Code: 20000</p>
+        </div>
+        <hr>
+        <div class="stats">
+            <div><strong>38+</strong><br>Projects</div>
+            <div><strong>24+</strong><br>Happy Clients</div>
+        </div>
+        <a href="#" class="download-btn"><i class="fas fa-download"></i> DOWNLOAD CV</a>
+    </div>
+
+    <!-- RIGHT MAIN -->
+    <div class="main-content">
+        <nav>
+            <ul>
+                <li data-section="about" class="nav-link active-nav">About</li>
+                <li data-section="resume" class="nav-link">Resume</li>
+                <li data-section="skills" class="nav-link">Skills</li>
+                <li data-section="projects" class="nav-link">Projects</li>
+                <li data-section="contact" class="nav-link">Contact</li>
+            </ul>
+        </nav>
+
+        <!-- ABOUT SECTION -->
+        <div id="about" class="section active-section">
+            <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+            <p style="margin-top: 15px;">Passionate developer with 2+ years of experience in building modern web applications. I love creating clean, efficient, and user-friendly solutions. Based in Algeria, working worldwide.</p>
+            <div class="about-grid">
+                <div><strong>Name:</strong> Amimour Achouak</div>
+                <div><strong>Experience:</strong> 2+ years</div>
+                <div><strong>Freelance:</strong> Available</div>
+                <div><strong>Email:</strong> amimourachouak@gmail.com</div>
+                <div><strong>Languages:</strong> Arabic, English, French</div>
+                <div><strong>Interest:</strong> Open Source, AI</div>
+            </div>
+        </div>
+
+        <!-- RESUME SECTION -->
+        <div id="resume" class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Resume</h2>
+            <div style="margin: 20px 0;">
+                <h3>🎓 Education</h3>
+                <p><strong>2026:</strong> Web Development – UNV JIJEL</p>
+            </div>
+        </div>
+
+        <!-- SKILLS SECTION -->
+        <div id="skills" class="section">
+            <h2><i class="fas fa-cogs"></i> My Skills</h2>
+            <div class="skill-item">
+                <div class="skill-name">JavaScript / TypeScript <span>90%</span></div>
+                <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">React / Next.js <span>85%</span></div>
+                <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Node.js / Express <span>80%</span></div>
+                <div class="progress-bar"><div class="progress" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Python / Django <span>75%</span></div>
+                <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">HTML5 / CSS3 / Tailwind <span>92%</span></div>
+                <div class="progress-bar"><div class="progress" style="width:92%"></div></div>
+            </div>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <div id="projects" class="section">
+            <h2><i class="fas fa-laptop-code"></i> Recent Projects</h2>
+            <div class="project-card">
+                <h3>📱 E-commerce Platform "ShopAlgeria"</h3>
+                <p>Fullstack MERN app with payment & admin dashboard.</p>
+            </div>
+            <div class="project-card">
+                <h3>📊 Analytics Dashboard</h3>
+                <p>React + D3.js for real-time data visualization.</p>
+            </div>
+            <div class="project-card">
+                <h3>🌐 Portfolio Generator</h3>
+                <p>Tool to create developer portfolios in minutes (Next.js + Tailwind).</p>
+            </div>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div id="contact" class="section">
+            <h2><i class="fas fa-paper-plane"></i> Contact Me</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address">
+                <textarea rows="3" placeholder="Message..."></textarea>
+                <button type="submit"><i class="fas fa-envelope"></i> Send Message</button>
+            </form>
+            <p style="margin-top: 20px;">📞 Direct: +213 xx xx xx xx</p>
+        </div>
+        <footer>
+            <hr> © 2026 Achouak – Web Developer. All rights reserved.
+        </footer>
+    </div>
+</div>
+
+<script>
+    // Navigation between sections
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function showSection(sectionId) {
+        sections.forEach(sec => {
+            sec.classList.remove('active-section');
+            if(sec.id === sectionId) {
+                sec.classList.add('active-section');
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const sectionId = this.getAttribute('data-section');
+            if(sectionId) {
+                showSection(sectionId);
+            }
+            navLinks.forEach(l => l.style.color = "#2c3e50");
+            this.style.color = "#f1c40f";
+        });
+    });
+
+    // PHOTO UPLOAD FUNCTIONALITY
+    const photoInput = document.getElementById('photoUpload');
+    const avatarIcon = document.getElementById('avatarIcon');
+    const avatarImg = document.getElementById('avatarImg');
+    
+    // Load saved photo from localStorage
+    const savedPhoto = localStorage.getItem('profilePhoto');
+    if(savedPhoto) {
+        avatarIcon.style.display = 'none';
+        avatarImg.style.display = 'block';
+        avatarImg.src = savedPhoto;
+    }
+    
+    photoInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if(file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                avatarIcon.style.display = 'none';
+                avatarImg.style.display = 'block';
+                avatarImg.src = imageData;
+                // Save to localStorage
+                localStorage.setItem('profilePhoto', imageData);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+</body>
+</html>
